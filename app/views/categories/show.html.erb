@@ -10,7 +10,7 @@
 <%= link_to 'Back', categories_path %>
 
 <%= form_with(model:[@category, Product.new], local: true) do |form| %>
-
+ <%= form.hidden_field :category_id, value: @category.id %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -32,5 +32,12 @@
       <th>name</th>
       <th>price</th>
     </tr>
+
+  <% @category.products.each do |prod| %>
+    <tr>
+      <td> <%= prod.name %> </td>
+      <td> <%= prod.name %> </td>
+    </tr>
+    <% end %>
   </table>
 </div>
