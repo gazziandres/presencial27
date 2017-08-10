@@ -29,15 +29,16 @@
 <div class="table-responsive">
   <table class="table">
     <tr>
-      <th>name</th>
-      <th>price</th>
+      <td>Producto</td>
+      <td>Precio</td>
+      <td>Eliminar</td>
     </tr>
-
-  <% @category.products.each do |prod| %>
-    <tr>
-      <td> <%= prod.name %> </td>
-      <td> <%= prod.name %> </td>
-    </tr>
+    <%@category.products.each do |product|%>
+      <tr>
+          <td><%= product.name%></td>
+          <td><%= product.price%></td>
+          <td><%= link_to 'borrar', category_product_path(@category, product), method: :delete%></td>
+      </tr>
     <% end %>
   </table>
 </div>
